@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./vendors/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="./resources/css/style.css">
+  <script src="./vendors/js/all.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    window.onload = function () {
+      app.fetchAll();
+    };
+  </script>
+  <div class="wrapper">
+    <h1>Exemplo de Manipulação de Array e Objetos em JavaScript</h1>
+  </div>
+
+  <div class="wrapper">
+
+    <fieldset class="field_set">
+      <legend>Manutenção de Funcionários</legend>
+      <p>Por favor, preencha os dados abaixo</p>
+      <form action="javascript:void(0);" method="POST" onsubmit="app.Add()">
+        <div class="row">
+          <div class="column">
+            <label for="cpf">CPF:</label>
+            <input type="text" class="textForm" id="add-cpf" name="cpf" />
+            <label for="nome">Nome:</label>
+            <input type="text" class="textForm" id="add-nome" name="nome" />
+          </div>
+          <div class="column">
+            <label for="cargo">Cargo:</label>
+            <input type="text" class="textForm" id="add-cargo" name="cargo" />
+            <label for="salario">Salário:</label>
+            <input type="number" id="add-salario" name="salario" class="inputSalario" />
+          </div>
+        </div>
+        <div class="align-items-right">
+          <input class="addButton add-button-margin" type="submit" value="Adicionar" />
+        </div>
+      </form>
+    </fieldset>
+  </div>
+
+  <div>
+
+    <div class="wrapperFilters">
+      <h2>Lista de Funcionários</h2>
+      <form class="filterSalary" action="javascript:void(0);" onsubmit="app.filterSalary()">
+        <input type="text" id="filtro-salario" placeholder="Filtre por salário" name="search">
+        <button type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+    <table class="styled-table">
+      <tr>
+        <th>CPF <i onclick="app.fetchAll('CPF')" class="fas fa-sort colored cursor"></i></th>
+        <th>Nome <i onclick="app.fetchAll('Nome')" class="fas fa-sort colored cursor"></i></th>
+        <th>Cargo <i onclick="app.fetchAll('Cargo')" class="fas fa-sort colored cursor"></i></th>
+        <th>Salario <i onclick="app.fetchAll('Salario')" class="fas fa-sort-down colored cursor"></i></th>
+        <th></th>
+      </tr>
+      <tbody id="employees"></tbody>
+    </table>
+    <div class="counter">
+      <p id="counter"></p>
+    </div>
+  </div>
+</body>
+<footer>
+  <script type="text/javascript" src="./resources/js/app.js"></script>
+</footer>
+
+</html>
